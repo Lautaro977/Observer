@@ -61,9 +61,10 @@ public class EstacionDeServicio extends Observable {
 
 		Combustible combustible = null;
 
-		if (tipo.contentEquals("Super"))
+		if (this.tipoSuper(tipo)) {
 			combustible = new Super(90);
-		else {
+		}
+		if (this.tipoComun(tipo)) {
 			combustible = new Comun(70);
 		}
 
@@ -85,4 +86,19 @@ public class EstacionDeServicio extends Observable {
 
 	}
 
+	public boolean tipoSuper(String tipo) {
+		boolean resultado = false;
+		if (tipo.contentEquals("Super")) {
+			resultado = true;
+		}
+		return resultado;
+	}
+
+	public boolean tipoComun(String tipo) {
+		boolean resultado = false;
+		if (tipo.contentEquals("Comun")) {
+			resultado = true;
+		}
+		return resultado;
+	}
 }
